@@ -9,4 +9,8 @@ public class HomeContoller {
     public String index(){
         return "index";
     }
+    @RequestMapping("/login")
+    public String login(){
+        return "login";
+    }
 }
