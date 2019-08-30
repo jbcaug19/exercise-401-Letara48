@@ -21,7 +21,10 @@ WebSecurityConfigurerAdapter{
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests().anyRequest().authenticated()
-                .and().formLogin().loginPage("/login").permitAll();
+                .antMatchers("/", "/css/**", "/js/**").permitAll()
+                .anyRequest().authenticated()
+                .and().formLogin().loginPage("/login").permitAll()
+                .and().httpBasic();
     }
     @Override
     protected void configure(AuthenticationManagerBuilder auth)
